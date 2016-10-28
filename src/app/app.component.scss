@@ -1,0 +1,44 @@
+$backcolor: rgba(123,31,162,.4);
+
+.container {
+  padding: 20px 0;
+}
+
+
+.herolist {
+
+  md-card {
+
+    > md-card-title {
+      color: #fff;
+      background: rgba(0, 0, 0, .2);
+      margin: -24px -24px 0;
+      padding: 24px 24px 16px;
+      border-radius: 2px 2px 0 0;
+    }
+
+    md-nav-list {
+      [md-list-avatar] {
+        display: inline-table;
+        line-height: 40px;
+        text-align: center;
+        background: rgba(0, 0, 0, .1);
+      }
+
+      .md-list-item {
+        transition: all .15s ease-in-out;
+      }
+
+      md-list-item.selected {
+        >.md-list-item, >.md-list-item:hover {
+          background: $backcolor;
+          color: #fff;
+          border-radius: 4px;
+        }
+      }
+
+    }
+    
+  }
+
+}

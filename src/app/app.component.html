@@ -1,3 +1,43 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout fullscreen>
+
+	<md-sidenav #sidenav>
+		<md-nav-list></md-nav-list>
+	</md-sidenav>
+
+	<md-toolbar color="primary" class="md-elevation-z4">
+		<button md-icon-button (click)="sidenav.open()">
+      <md-icon>menu</md-icon>
+    </button>
+    {{ title }}
+	</md-toolbar>
+
+	<div class="container">
+		<!--<router-outlet></router-outlet>-->
+    <div class="row">
+
+      <div class="col-lg-4 herolist">
+        <md-card>
+          <md-card-title>My Heroes</md-card-title>
+          <md-nav-list>
+            <md-list-item *ngFor="let hero of heroes"
+                [class.selected]="hero === selectedHero" 
+                (click)="onSelect(hero)">
+              <span md-list-avatar>{{ hero.id }}</span>
+              <p md-line>{{ hero.name }}</p>
+            </md-list-item>
+          </md-nav-list>
+        </md-card>
+      </div>
+
+      <div *ngIf="selectedHero" class="col-lg-4 herodetail">
+        <md-card>
+          <md-card-title>{{ selectedHero.name }} details!</md-card-title>
+          <md-input placeholder="id" [ngModel]="selectedHero.id" disabled></md-input>
+          <md-input placeholder="name" [(ngModel)]="selectedHero.name"></md-input>
+        </md-card>
+      </div>
+
+    </div>
+	</div>
+
+</md-sidenav-layout>
