@@ -3,7 +3,8 @@
 	<md-sidenav #sidenav>
 		<md-nav-list>
 			<a *ngFor="let item of navItems"
-				md-list-item [routerLink]="item.path" (click)="sidenav.toggle()">
+				md-list-item [routerLink]="item.path"
+				routerLinkActive="active" (click)="sidenav.toggle()">
 				<md-icon md-list-icon>{{ item.icon }}</md-icon>
 				<span md-line>{{ item.text }}</span>
 				<span md-line class="secondary">{{ item.description }}</span>

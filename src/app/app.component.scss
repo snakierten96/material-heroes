@@ -1,3 +1,10 @@
+@import '~@angular/material/core/theming/all-theme';
+
+$accent:  md-palette($md-purple, 700, 600, 800);
+$backcolor: rgba(map-get($accent, default),.4);
+$contrast: map-get($accent, "default-contrast");
+
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -9,4 +16,13 @@
 
 .container {
   padding: 20px 0;
+}
+
+md-sidenav {
+  md-nav-list {
+    a.active > div.md-list-item {
+      background: $backcolor;
+      color: $contrast;
+    }
+  }
 }
