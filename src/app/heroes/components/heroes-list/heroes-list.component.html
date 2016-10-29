@@ -1,0 +1,28 @@
+<div class="row">
+
+  <div class="col-lg-4 herolist">
+    <md-card>
+      <md-card-title>My Heroes</md-card-title>
+      <md-nav-list>
+        <md-list-item *ngFor="let hero of heroes"
+            [class.selected]="hero === selectedHero" 
+            (click)="onSelect(hero)">
+          <span md-list-avatar>{{ hero.id }}</span>
+          <p md-line>{{ hero.name }}</p>
+        </md-list-item>
+      </md-nav-list>
+    </md-card>
+  </div>
+
+  <div class="col-lg-4">
+    <md-card *ngIf="selectedHero" class="herodetail">
+      <md-card-title>{{ selectedHero.name }} is my hero!</md-card-title>
+      <md-card-actions align="end">
+        <a md-raised-button color="accent" [routerLink]="['/hero',selectedHero.id]">
+          View Details
+        </a>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+</div>
