@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent }   from './app.component';
 import { HeroDetailComponent } from './hero/hero-detail.component';
+import { HeroService }    from './hero/hero.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import { HeroDetailComponent } from './hero/hero-detail.component';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [Title],
+  providers: [
+    Title,
+    HeroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
