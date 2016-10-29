@@ -1,9 +1,12 @@
-$backcolor: rgba(123,31,162,.4);
+@import '~@angular/material/core/theming/all-theme';
+
+$accent:  md-palette($md-purple, 700, 600, 800);
+$backcolor: rgba(map-get($accent, default),.4);
+$contrast: map-get($accent, "default-contrast");
 
 .container {
   padding: 20px 0;
 }
-
 
 .herolist {
 
@@ -32,7 +35,7 @@ $backcolor: rgba(123,31,162,.4);
       md-list-item.selected {
         >.md-list-item, >.md-list-item:hover {
           background: $backcolor;
-          color: #fff;
+          color: $contrast;
           border-radius: 4px;
         }
       }

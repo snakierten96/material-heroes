@@ -29,13 +29,7 @@
         </md-card>
       </div>
 
-      <div *ngIf="selectedHero" class="col-lg-4 herodetail">
-        <md-card>
-          <md-card-title>{{ selectedHero.name }} details!</md-card-title>
-          <md-input placeholder="id" [ngModel]="selectedHero.id" disabled></md-input>
-          <md-input placeholder="name" [(ngModel)]="selectedHero.name"></md-input>
-        </md-card>
-      </div>
+      <mh-hero-detail [hero]="selectedHero" class="col-lg-4"></mh-hero-detail>
 
     </div>
 	</div>
