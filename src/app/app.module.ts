@@ -6,8 +6,9 @@ import { MaterialModule } from '@angular/material';
 
 import { routing, appRoutingProviders } from './app.routing';
 
-import { AppComponent }   from './app.component';
-import { HeroesModule } from './heroes';
+import { AppComponent }     from './app.component';
+import { HeroesModule }     from './heroes';
+import { DashboardModule }  from './dashboard';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeroesModule } from './heroes';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    HeroesModule
+    HeroesModule,
+    DashboardModule
   ],
   providers: [
     Title,
