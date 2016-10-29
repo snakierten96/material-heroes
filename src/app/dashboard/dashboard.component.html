@@ -1,3 +1,16 @@
 <div class="row">
-  <h2>Dashboard Works</h2>
+	<div class="col-lg-12">
+		<md-card>
+			<md-card-title>Top Heroes</md-card-title>
+			<div class="row">
+				<div *ngFor="let hero of heroes" class="col-lg-3">
+          <button md-raised-button
+             [routerLink]="['/hero',hero.id]"
+             color="accent" class="hero">
+            {{ hero.name }}
+          </button>
+				</div>
+			</div>
+		</md-card>
+	</div>
 </div>
