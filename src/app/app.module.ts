@@ -4,11 +4,15 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent }     from './app.component';
 import { HeroesModule }     from './heroes';
 import { DashboardModule }  from './dashboard';
+
+import { HeroesService, InMemoryDataService } from './heroes/services';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,14 @@ import { DashboardModule }  from './dashboard';
     routing,
     FormsModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     MaterialModule.forRoot(),
     HeroesModule,
     DashboardModule
   ],
   providers: [
     Title,
+    HeroesService,
     appRoutingProviders
   ],
   bootstrap: [AppComponent]

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms'
 import { MaterialModule } from '@angular/material';
 
 import { HeroesListComponent, HeroDetailComponent } from './components';
-import { HeroesService } from './services';
 
 import { heroesRouting } from './heroes.routing';
 
@@ -19,6 +18,5 @@ import { heroesRouting } from './heroes.routing';
     HeroesListComponent,
     HeroDetailComponent
   ],
-  providers: [HeroesService]
 })
 export class HeroesModule { }

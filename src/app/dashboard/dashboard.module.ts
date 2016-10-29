@@ -5,7 +5,6 @@ import { MaterialModule } from '@angular/material'
 import { dashboardRouting } from './dashboard.routing';
 import { DashboardComponent } from './dashboard.component';
 
-import { HeroesService } from '../heroes/services';
 
 @NgModule({
   imports: [
@@ -14,6 +13,5 @@ import { HeroesService } from '../heroes/services';
     MaterialModule.forRoot()
   ],
   declarations: [DashboardComponent],
-  providers: [HeroesService]
 })
 export class DashboardModule { }
