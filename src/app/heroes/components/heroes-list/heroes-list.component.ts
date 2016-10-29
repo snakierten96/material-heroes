@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { Hero } from '../../hero';
 import { HeroesService } from '../../services';
@@ -12,10 +13,11 @@ import { HeroesService } from '../../services';
 export class HeroesListComponent implements OnInit {
 
   heroes: Hero[];
-
   selectedHero: Hero;
 
-  constructor(private heroesService: HeroesService) { }
+  constructor(
+    private titleService: Title,
+    private heroesService: HeroesService) { }
 
   ngOnInit (): void {
     this.getHeroes();
@@ -27,7 +29,10 @@ export class HeroesListComponent implements OnInit {
   }
 
   getHeroes (): void {
-    this.heroesService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroesService.getHeroes().then(heroes => {
+      this.heroes = heroes;
+      this.titleService.setTitle(['My Heroes','Tour of Heroes'].join(" :: "));
+    });
   }
 
 }

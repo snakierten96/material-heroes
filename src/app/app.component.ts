@@ -1,6 +1,8 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
+import { INavItems, NAVITEMS } from './app.navigation';
+
 @Component({
   selector: 'mh-root',
   templateUrl: './app.component.html',
@@ -9,9 +11,10 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+  navItems: INavItems[] = NAVITEMS;
 
-  constructor (private tileService: Title) {
-    this.tileService.setTitle(this.title);
+  constructor (private titleService: Title) {
+    this.titleService.setTitle(this.title);
   }
 
 }

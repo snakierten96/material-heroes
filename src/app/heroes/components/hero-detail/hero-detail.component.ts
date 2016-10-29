@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -14,6 +15,7 @@ import { HeroesService } from '../../services';
 export class HeroDetailComponent implements OnInit {
 
   constructor(
+    private titleService: Title,
     private heroesService: HeroesService,
     private route: ActivatedRoute,
     private location: Location) {}
@@ -25,7 +27,10 @@ export class HeroDetailComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let id = +params['id'];
       this.heroesService.getHero(id)
-        .then(hero => this.hero = hero);
+        .then(hero => { 
+          this.hero = hero;
+          this.titleService.setTitle([`${this.hero.name} details`,'Tour of Heroes'].join(" :: "));
+        });
     });
   }
 
