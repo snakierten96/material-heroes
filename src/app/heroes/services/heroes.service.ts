@@ -9,6 +9,7 @@ import { Hero } from '../hero';
 export class HeroesService {
 
   private heroesUrl: string = 'api/heroes';
+  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor (private http: Http) { }
 
@@ -22,6 +23,14 @@ export class HeroesService {
   getHero (id: number): Promise<Hero> {
     return this.getHeroes()
         .then(heroes => heroes.find(hero => hero.id === id));
+  }
+
+  update (hero: Hero): Promise<Hero> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http.put(url, JSON.stringify(hero), { headers: this.headers})
+        .toPromise()
+        .then(() => hero)
+        .catch(this.handleError);
   }
 
   private handleError (error: any): Promise<any> {
