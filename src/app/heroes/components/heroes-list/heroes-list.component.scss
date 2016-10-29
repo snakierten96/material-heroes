@@ -17,7 +17,7 @@ $contrast: map-get($accent, "default-contrast");
     }
 
     md-nav-list {
-      [md-list-avatar] {
+      span[md-list-avatar] {
         display: inline-table;
         line-height: 40px;
         text-align: center;
@@ -40,4 +40,10 @@ $contrast: map-get($accent, "default-contrast");
     
   }
 
+}
+
+.herodetail {
+  img {
+    width: 100%;
+  }
 }

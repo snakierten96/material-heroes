@@ -7,7 +7,11 @@
         <md-list-item *ngFor="let hero of heroes"
             [class.selected]="hero === selectedHero" 
             (click)="onSelect(hero)">
-          <span md-list-avatar>{{ hero.id }}</span>
+          <span *ngIf="!hero.hasOwnProperty('image')" md-list-avatar>
+            {{ hero.id }}
+          </span>
+          <img *ngIf="hero.hasOwnProperty('image')" md-list-avatar 
+            [src]="['/assets','images',hero.image].join('/')" />
           <p md-line>{{ hero.name }}</p>
         </md-list-item>
       </md-nav-list>
@@ -17,6 +21,11 @@
   <div class="col-lg-4">
     <md-card *ngIf="selectedHero" class="herodetail">
       <md-card-title>{{ selectedHero.name }} is my hero!</md-card-title>
+      <a *ngIf="selectedHero.hasOwnProperty('image')"
+          [routerLink]="['/hero',selectedHero.id]" >
+        <img [src]="['/assets','images',selectedHero.image].join('/')"
+             [alt]="selectedHero.name" />
+      </a>
       <md-card-actions align="end">
         <a md-raised-button color="accent" [routerLink]="['/hero',selectedHero.id]">
           View Details
