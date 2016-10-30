@@ -35,4 +35,13 @@ export class HeroesListComponent implements OnInit {
     });
   }
 
+  delete (hero: Hero): void {
+    this.heroesService
+      .delete(hero.id)
+      .then(() => {
+        this.heroes = this.heroes.filter(h => h.id !== hero.id);
+        if ( this.selectedHero === hero ) { this.selectedHero = null }
+      })
+  }
+
 }

@@ -17,6 +17,12 @@ $contrast: map-get($accent, "default-contrast");
     }
 
     md-nav-list {
+
+      // Correct width is 100% less sibling elements total width
+      [md-list-avatar] + .md-list-text {
+        width: calc(100% - 80px);
+      }
+
       span[md-list-avatar] {
         display: inline-table;
         line-height: 40px;

@@ -12,7 +12,7 @@ import { AppComponent }     from './app.component';
 import { HeroesModule }     from './heroes';
 import { DashboardModule }  from './dashboard';
 
-import { HeroesService, InMemoryDataService } from './heroes/services';
+import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroes/services';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { HeroesService, InMemoryDataService } from './heroes/services';
   providers: [
     Title,
     HeroesService,
+    HeroesSearchService,
     appRoutingProviders
   ],
   bootstrap: [AppComponent]

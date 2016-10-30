@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { MaterialModule } from '@angular/material';
 
-import { HeroesListComponent, HeroDetailComponent } from './components';
+import { HEROES_COMPONENTS } from './components';
 
 import { heroesRouting } from './heroes.routing';
 
@@ -15,8 +15,7 @@ import { heroesRouting } from './heroes.routing';
     MaterialModule.forRoot()
   ],
   declarations: [
-    HeroesListComponent,
-    HeroDetailComponent
+    ...HEROES_COMPONENTS
   ],
 })
 export class HeroesModule { }

@@ -13,6 +13,10 @@
           <img *ngIf="hero.hasOwnProperty('image')" md-list-avatar 
             [src]="['/assets','images',hero.image].join('/')" />
           <p md-line>{{ hero.name }}</p>
+          <button md-icon-button color="warn"
+            (click)="delete(hero); $event.stopPropagation()">
+            <md-icon>close</md-icon>
+          </button>
         </md-list-item>
       </md-nav-list>
     </md-card>
