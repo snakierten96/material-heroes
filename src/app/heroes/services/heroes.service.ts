@@ -28,14 +28,14 @@ export class HeroesService {
 
   update (hero: Hero): Observable<Hero> {
     const url = `${this.heroesUrl}/${hero.id}`;
-    return this.http.put(url, JSON.stringify(hero), { headers: this.headers})
+    return this.http.put(url, JSON.stringify(hero), { headers: this.headers })
         .map(() => hero)
         .catch(this.handleError);
   }
 
   create (name: string): Observable<Hero> {
     return this.http
-      .post(this.heroesUrl, JSON.stringify({ name: name}),{ headers: this.headers })
+      .post(this.heroesUrl, JSON.stringify({ name: name}), { headers: this.headers })
       .map((res: Response) => res.json().data)
       .catch(this.handleError);
   }
