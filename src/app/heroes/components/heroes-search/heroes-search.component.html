@@ -1,3 +1,16 @@
-<p>
-  heroes-search works!
-</p>
+<md-card>
+  <md-card-title>Hero Search</md-card-title>
+  <md-input #searchBox placeholder="search" (keyup)="search(searchBox.value)">
+  </md-input>
+  <md-nav-list>
+    <a *ngFor="let hero of heroes | async"
+        md-list-item [routerLink]="['/hero',hero.id]">
+      <span *ngIf="!hero.hasOwnProperty('image')" md-list-avatar>
+        {{ hero.id }}
+      </span>
+      <img *ngIf="hero.hasOwnProperty('image')" md-list-avatar 
+        [src]="['/assets','images',hero.image].join('/')" />
+      <p md-line>{{ hero.name }}</p>
+    </a>
+  </md-nav-list>
+</md-card>

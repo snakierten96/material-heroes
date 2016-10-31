@@ -5,6 +5,8 @@ import { MaterialModule } from '@angular/material'
 import { dashboardRouting } from './dashboard.routing';
 import { DashboardComponent } from './dashboard.component';
 
+import { HeroesSearchComponent } from '../heroes/components';
+
 
 @NgModule({
   imports: [
@@ -12,6 +14,9 @@ import { DashboardComponent } from './dashboard.component';
     dashboardRouting,
     MaterialModule.forRoot()
   ],
-  declarations: [DashboardComponent],
+  declarations: [
+    DashboardComponent,
+    HeroesSearchComponent
+  ],
 })
 export class DashboardModule { }

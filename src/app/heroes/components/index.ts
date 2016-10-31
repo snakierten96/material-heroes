@@ -5,7 +5,6 @@ import { HeroesSearchComponent } from './heroes-search';
 export const HEROES_COMPONENTS = [
   HeroDetailComponent,
   HeroesListComponent,
-  HeroesSearchComponent
 ];
 
 export {
