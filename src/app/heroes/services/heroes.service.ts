@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Headers, Response, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Hero } from '../hero';
 
@@ -13,45 +15,41 @@ export class HeroesService {
 
   constructor (private http: Http) { }
 
-  getHeroes (): Promise<Hero[]> {
-    return this.http.get(this.heroesUrl)
-      .toPromise()
-      .then((res: Response) => res.json().data as Hero[])
+  getHeroes (): Observable<Hero[]> {
+    return this.http.get(this.heroesUrl, { headers: this.headers })
+      .map((res: Response) => res.json().data as Hero[])
       .catch(this.handleError);
   }
 
-  getHero (id: number): Promise<Hero> {
+  getHero (id: number): Observable<Hero> {
     return this.getHeroes()
-        .then(heroes => heroes.find(hero => hero.id === id));
+        .map(heroes => heroes.find(hero => hero.id === id));
   }
 
-  update (hero: Hero): Promise<Hero> {
+  update (hero: Hero): Observable<Hero> {
     const url = `${this.heroesUrl}/${hero.id}`;
     return this.http.put(url, JSON.stringify(hero), { headers: this.headers})
-        .toPromise()
-        .then(() => hero)
+        .map(() => hero)
         .catch(this.handleError);
   }
 
-  create (name: string): Promise<Hero> {
+  create (name: string): Observable<Hero> {
     return this.http
       .post(this.heroesUrl, JSON.stringify({ name: name}),{ headers: this.headers })
-      .toPromise()
-      .then((res: Response) => res.json().data)
+      .map((res: Response) => res.json().data)
       .catch(this.handleError);
   }
 
-  delete (id: number): Promise<void> {
+  delete (id: number): Observable<void> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.delete(url, { headers: this.headers })
-        .toPromise()
-        .then(() => null)
+        .map(() => null)
         .catch(this.handleError);
   }
 
-  private handleError (error: any): Promise<any> {
+  private handleError (error: any): Observable<any> {
     console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    return Observable.throw(error.message || error);
   }
 
 }

@@ -27,9 +27,9 @@ export class HeroDetailComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let id = +params['id'];
       this.heroesService.getHero(id)
-        .then(hero => { 
+        .subscribe(hero => { 
           this.hero = hero;
-          this.titleService.setTitle([`${this.hero.name} details`,'Tour of Heroes'].join(" :: "));
+          this.titleService.setTitle(`${this.hero.name} details :: Tour of Heroes`);
         });
     });
   }
@@ -40,7 +40,7 @@ export class HeroDetailComponent implements OnInit {
 
   save (): void {
     this.heroesService.update(this.hero)
-      .then(() => this.goBack());
+      .subscribe(() => this.goBack());
   }
 
 }
