@@ -11,6 +11,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent }     from './app.component';
 import { HeroesModule }     from './heroes';
 import { DashboardModule }  from './dashboard';
+import { CrisisCenterModule } from './crisis-center';
 
 import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroes/services';
 
@@ -26,7 +27,8 @@ import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroe
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     MaterialModule.forRoot(),
     HeroesModule,
-    DashboardModule
+    DashboardModule,
+    CrisisCenterModule
   ],
   providers: [
     Title,

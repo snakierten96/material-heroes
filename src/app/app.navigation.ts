@@ -6,7 +6,28 @@ export interface INavItems {
 };
 
 export const NAVITEMS: INavItems[] = [
-  { text: 'Dashboard', description: 'Top heroes', icon: 'home', path: ['/dashboard'] },
-  { text: 'Heroes', description: 'List of heroes', icon: 'people', path: ['/heroes'] },
-  { text: 'Sample', description: 'A sample item', icon: 'mail', path: ['/path','to','something'] }
+  { 
+    text: 'Dashboard',
+    description: 'Top heroes',
+    icon: 'home',
+    path: ['/dashboard']
+  },
+  { 
+    text: 'Heroes',
+    description: 'List of heroes',
+    icon: 'people',
+    path: ['/heroes']
+  },
+  { 
+    text: 'Crisis Center',
+    description: 'Deail with trouble!',
+    icon: 'warning',
+    path: ['/crisis-center']
+  },
+  {
+    text: 'Admin',
+    description: 'Administration functions',
+    icon: 'security',
+    path: ['/admin']
+  }
 ];

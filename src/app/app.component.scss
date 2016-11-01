@@ -1,6 +1,4 @@
-@import '~@angular/material/core/theming/all-theme';
-
-$accent:  md-palette($md-purple, 700, 600, 800);
+@import '../variables';
 $backcolor: rgba(map-get($accent, default),.4);
 $contrast: map-get($accent, "default-contrast");
 
