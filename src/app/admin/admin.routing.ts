@@ -6,7 +6,7 @@ import {
   ManageHeroesComponent
 } from './components';
 
-const crisisCenterRoutes: Routes = [
+const adminRoutes: Routes = [
   { 
     path: 'admin',
     component: AdminComponent,
@@ -23,4 +23,4 @@ const crisisCenterRoutes: Routes = [
   }
 ];
 
-export const crisisCenterRouting = RouterModule.forChild(crisisCenterRoutes);
+export const adminRouting = RouterModule.forChild(adminRoutes);
