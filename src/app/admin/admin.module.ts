@@ -8,10 +8,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 import { ManageHeroesComponent } from './manage-heroes/manage-heroes.component';
 
+import { adminRouting } from './admin.routing';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    adminRouting,
     MaterialModule.forRoot()
   ],
   declarations: [

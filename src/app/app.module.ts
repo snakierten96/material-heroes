@@ -12,6 +12,7 @@ import { AppComponent }     from './app.component';
 import { HeroesModule }     from './heroes';
 import { DashboardModule }  from './dashboard';
 import { CrisisCenterModule } from './crisis-center';
+import { AdminModule } from './admin';
 
 import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroes/services';
 
@@ -28,7 +29,8 @@ import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroe
     MaterialModule.forRoot(),
     HeroesModule,
     DashboardModule,
-    CrisisCenterModule
+    CrisisCenterModule,
+    AdminModule
   ],
   providers: [
     Title,
