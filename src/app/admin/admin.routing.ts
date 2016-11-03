@@ -6,10 +6,13 @@ import {
   ManageHeroesComponent
 } from './components';
 
+import { AuthGuardService } from '../auth-guard.service';
+
 const adminRoutes: Routes = [
   { 
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         path: '',

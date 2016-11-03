@@ -15,10 +15,12 @@ import { CrisisCenterModule } from './crisis-center';
 import { AdminModule } from './admin';
 
 import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroes/services';
+import { LoginComponent, LoginRoutingModule } from './login';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroe
     HeroesModule,
     DashboardModule,
     CrisisCenterModule,
-    AdminModule
+    AdminModule,
+    LoginRoutingModule
   ],
   providers: [
     Title,
