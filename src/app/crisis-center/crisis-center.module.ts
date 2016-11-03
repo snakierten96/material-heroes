@@ -10,11 +10,13 @@ import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
 import { CrisisCenterHomeComponent } from './crisis-center-home/crisis-center-home.component';
 
 import { CrisisService } from './crisis.service';
+import { CrisisDetailResolveService } from './crisis-detail-resolve.service';
 import { CrisisDialogComponent } from './crisis-dialog/crisis-dialog.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     crisisCenterRouting,
     MaterialModule.forRoot()
   ],
@@ -28,6 +30,9 @@ import { CrisisDialogComponent } from './crisis-dialog/crisis-dialog.component';
   entryComponents: [
     CrisisDialogComponent
   ],
-  providers: [CrisisService]
+  providers: [
+    CrisisService,
+    CrisisDetailResolveService
+  ]
 })
 export class CrisisCenterModule { }
