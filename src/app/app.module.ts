@@ -17,6 +17,8 @@ import { AdminModule } from './admin';
 import { HeroesService, HeroesSearchService, InMemoryDataService } from './heroes/services';
 import { LoginComponent, LoginRoutingModule } from './login';
 
+import { CanDeactivateGuardService } from './can-deactivate-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import { LoginComponent, LoginRoutingModule } from './login';
     Title,
     HeroesService,
     HeroesSearchService,
+    CanDeactivateGuardService,
     appRoutingProviders
   ],
   bootstrap: [AppComponent]

@@ -3,6 +3,8 @@ import { Component, OnInit, HostBinding,
          animate, style, state } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 
+import { Observable } from 'rxjs/Observable';
+
 import { Crisis } from '../crisis.service';
 
 @Component({
@@ -74,9 +76,11 @@ export class CrisisDetailComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
-  canDeactivate (): boolean {
+  canDeactivate (): boolean | Observable<boolean> {
     if ( !this.crisis || this.crisis.name === this.editName ) { return true; }
     // TODO: call dialog to handle confirmation
+    console.log('Save changes?');
+    return false;
   }
 
 }
