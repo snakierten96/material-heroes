@@ -74,4 +74,9 @@ export class CrisisDetailComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
+  canDeactivate (): boolean {
+    if ( !this.crisis || this.crisis.name === this.editName ) { return true; }
+    // TODO: call dialog to handle confirmation
+  }
+
 }

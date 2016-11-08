@@ -46,10 +46,12 @@ export class CrisisListComponent implements OnInit {
 
     this.dialogRef = this.dialog.open(CrisisDialogComponent, config);
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ' + result);
-      this.dialogRef = null;
-    });
+    this.dialogRef.afterClosed()
+      .map(result => (result !== undefined) ? result : false )
+      .subscribe(result => {
+        console.log('result: ' + result);
+        this.dialogRef = null;
+      });
   }
 
 }
